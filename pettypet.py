@@ -22,7 +22,7 @@ class Pet:
     def feed(self):
         if self.fullness < 100:
             gain = random.randint(1,20)
-            self.clamp("fullness", 25)  # FIXED: +25 instead of -25
+            self.clamp("fullness", 25)  
             self.clamp("energy", 20)
             self.clamp("affection", gain)
             print(f"\n{self.name} is eating!\n{GREEN}Fullness: {self.fullness} | Energy: {self.energy} | Affection: +{gain}{RESET}")
@@ -30,7 +30,7 @@ class Pet:
             print(f"\n{RED}{self.name} is already full!{RESET}")
     
     def play(self):
-        if self.energy >= 40 and self.fullness >= 60:
+        if self.energy >= 40 and self.fullness >= 30:
             gain = random.randint(10,30)
             self.clamp("energy", -20)
             self.clamp("fullness", -20)
@@ -41,7 +41,7 @@ class Pet:
             print(f"\n{RED}{self.name} is too tired or hungry to play!{RESET}")
 
     def sleep(self):
-        if self.fullness >= 15:  # FIXED: Removed high energy requirement
+        if self.fullness >= 15:  
             self.clamp("energy", 40)
             self.clamp("fullness", -25) # digesting food
             print(f"\n{GREEN}{self.name} is sleeping peacefully.{RESET}")
@@ -79,7 +79,7 @@ while True:
         break
     elif user_pet_choice == "N":
         print("OK. Thank you for visiting.")
-        exit()  # FIXED: Exit program if user doesn't want a pet
+        exit()  
     else:
         print(f"{RED}Please enter a valid option.{RESET}")
 
@@ -97,7 +97,7 @@ while True:
         continue
 
     if user_choice == 1:
-        cat_name.rename()  # FIXED: Removed duplicate print statement
+        cat_name.rename()  
     elif user_choice == 2:
         cat_name.feed()
     elif user_choice == 3:
